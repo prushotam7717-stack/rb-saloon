@@ -2,122 +2,97 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>RB Saloon | Book Appointment</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+<title>RB Professional Unisex Salon</title>
 <style>
-  body {
-    margin: 0;
-    padding: 0;
-    background: linear-gradient(135deg, #111, #333);
-    font-family: 'Segoe UI', sans-serif;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .card {
-    width: 360px;
-    background: #fff;
-    border-radius: 14px;
-    padding: 25px;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
-  }
-
-  .logo {
-    text-align: center;
-    font-size: 26px;
-    font-weight: bold;
-    margin-bottom: 5px;
-  }
-
-  .tagline {
-    text-align: center;
-    font-size: 13px;
-    color: #777;
-    margin-bottom: 20px;
-  }
-
-  input, select {
-    width: 100%;
-    padding: 12px;
-    margin-top: 12px;
-    border-radius: 8px;
-    border: 1px solid #ccc;
-    font-size: 15px;
-  }
-
-  button {
-    width: 100%;
-    margin-top: 20px;
-    padding: 14px;
-    font-size: 16px;
-    font-weight: bold;
-    background: #25D366;
-    color: white;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-  }
-
-  button:hover {
-    background: #1ebe5d;
-  }
-
-  .footer {
-    text-align: center;
-    font-size: 11px;
-    color: #999;
-    margin-top: 15px;
-  }
+  body { margin:0; font-family:Arial,sans-serif; background:#f7f7f7; color:#333; }
+  header { background:#111; color:#fff; padding:20px; text-align:center; }
+  header h1 { margin:0; font-size:28px; }
+  header p { margin:5px 0 0 0; font-size:16px; }
+  .gallery { display:flex; flex-wrap:wrap; justify-content:center; gap:10px; padding:20px; }
+  .gallery img { width:220px; height:200px; object-fit:cover; border-radius:10px; box-shadow:0 4px 8px rgba(0,0,0,0.2); }
+  .services { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:20px; padding:20px; max-width:1000px; margin:auto; }
+  .card { background:#fff; padding:15px; border-radius:10px; box-shadow:0 4px 10px rgba(0,0,0,0.1); text-align:center; }
+  .card h3 { margin:10px 0 5px 0; color:#111; }
+  .card p { margin:0; font-size:14px; color:#555; }
+  .booking { background:#fff; padding:20px; border-radius:10px; box-shadow:0 4px 10px rgba(0,0,0,0.1); max-width:500px; margin:20px auto; }
+  .booking h2 { text-align:center; margin-bottom:15px; }
+  form { display:grid; gap:12px; }
+  input, select, textarea, button { padding:12px; font-size:16px; border-radius:6px; border:1px solid #ccc; width:100%; }
+  button { background:#111; color:#fff; cursor:pointer; border:none; transition:0.3s; }
+  button:hover { background:#333; }
+  footer { background:#111; color:#fff; text-align:center; padding:15px; margin-top:30px; font-size:14px; }
 </style>
 </head>
-
 <body>
 
-<div class="card">
-  <div class="logo">RB SALOON</div>
-  <div class="tagline">Premium Grooming & Styling</div>
+<header>
+  <h1>RB Professional Unisex Salon</h1>
+  <p>Professional Hair • Facial • Grooming Services</p>
+</header>
 
-  <input type="text" id="name" placeholder="Your Name">
+<section class="gallery">
+  <img src="https://images.unsplash.com/photo-1600185366527-9f0f1e0a8ef4?crop=entropy&cs=tinysrgb&fit=max&w=500&h=400" alt="Salon Photo 1">
+  <img src="https://images.unsplash.com/photo-1619089388891-1d1e2cdbf57b?crop=entropy&cs=tinysrgb&fit=max&w=500&h=400" alt="Salon Photo 2">
+  <img src="https://images.unsplash.com/photo-1614281211359-3455f5a537cd?crop=entropy&cs=tinysrgb&fit=max&w=500&h=400" alt="Salon Photo 3">
+  <img src="https://images.unsplash.com/photo-1614281100850-5b13c8a7d478?crop=entropy&cs=tinysrgb&fit=max&w=500&h=400" alt="Salon Photo 4">
+</section>
 
-  <select id="service">
-    <option value="">Select Service</option>
-    <option>Hair Cut</option>
-    <option>Beard Trim</option>
-    <option>Hair + Beard</option>
-    <option>Facial</option>
-  </select>
+<section>
+  <h2 style="text-align:center; padding-top:20px;">Our Services</h2>
+  <div class="services">
+    <div class="card"><h3>Haircut</h3><p>Latest and classic haircuts for all styles</p></div>
+    <div class="card"><h3>Facial</h3><p>Glowing and skin care facials</p></div>
+    <div class="card"><h3>Hair Curl</h3><p>Stylish hair curls and waves</p></div>
+    <div class="card"><h3>Scrub</h3><p>Deep cleaning and skin scrubs</p></div>
+    <div class="card"><h3>Wax</h3><p>Face and body waxing services</p></div>
+    <div class="card"><h3>Full Grooming</h3><p>Complete grooming package</p></div>
+  </div>
+</section>
 
-  <input type="date" id="date">
+<section class="booking">
+  <h2>Book Your Appointment</h2>
+  <form id="bookingForm">
+    <input type="text" placeholder="Your Name" id="name" required>
+    <input type="tel" placeholder="Mobile Number" id="phone" required>
+    <select id="service" required>
+      <option value="">Select Service</option>
+      <option>Haircut</option>
+      <option>Facial</option>
+      <option>Hair Curl</option>
+      <option>Scrub</option>
+      <option>Wax</option>
+      <option>Full Grooming</option>
+    </select>
+    <input type="date" id="date" required>
+    <textarea placeholder="Any special request (Optional)" id="message"></textarea>
+    <button type="submit">Book via WhatsApp</button>
+  </form>
+</section>
 
-  <button onclick="bookNow()">Book on WhatsApp</button>
-
-  <div class="footer">© 2026 RB Saloon</div>
-</div>
+<footer>
+  <p>© 2026 RB Professional Unisex Salon | All Rights Reserved</p>
+  <p>Call us: +91  8360407137</p>
+  <p>Visit: Near Js resort 1, Ropar</p>
+</footer>
 
 <script>
-function bookNow() {
-  var name = document.getElementById("name").value;
-  var service = document.getElementById("service").value;
-  var date = document.getElementById("date").value;
-
-  if (name === "" || service === "" || date === "") {
-    alert("Please fill all details");
-    return;
-  }
-
-  var phone = "918360407137"; // 👈 اپنا WhatsApp نمبر
-
-  var msg =
-    "💈 *RB Saloon Booking* %0A%0A" +
-    "👤 Name: " + name + "%0A" +
-    "✂️ Service: " + service + "%0A" +
-    "📅 Date: " + date;
-
-  window.open("https://wa.me/" + phone + "?text=" + msg, "_blank");
-}
+  // WhatsApp Booking Script
+  const whatsappNumber = "918360407137"; // <-- यहाँ अपना नंबर डाल देना
+  document.getElementById("bookingForm").addEventListener("submit", function(e){
+    e.preventDefault();
+    const name = document.getElementById("name").value;
+    const phone = document.getElementById("phone").value;
+    const service = document.getElementById("service").value;
+    const date = document.getElementById("date").value;
+    const message = document.getElementById("message").value;
+    
+    let fullMessage = `Hello, I want to book an appointment:%0AName: ${name}%0APhone: ${phone}%0AService: ${service}%0ADate: ${date}`;
+    if(message) fullMessage += `%0ARequest: ${message}`;
+    
+    const url = `https://wa.me/${whatsappNumber}?text=${fullMessage}`;
+    window.open(url,"_blank");
+  });
 </script>
 
 </body>
