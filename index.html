@@ -1,26 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>RB Professional Unisex Salon</title>
-  <style>
-    body { margin:0; font-family:Arial,sans-serif; background:#f7f7f7; color:#333; }
-    header { background:#111; color:#fff; padding:20px; text-align:center; }
-    header h1 { margin:0; font-size:28px; }
-    .gallery { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:15px; padding:20px; max-width:1000px; margin:auto; }
-    .gallery img { width:100%; border-radius:10px; box-shadow:0 4px 10px rgba(0,0,0,0.2); }
-    section { padding:30px 15px; max-width:1000px; margin:auto; }
-    .services { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:20px; }
-    .card { background:#fff; padding:20px; border-radius:10px; box-shadow:0 4px 10px rgba(0,0,0,0.1); text-align:center; }
-    .card h3 { margin-top:0; color:#000; }
-    .booking { background:#fff; padding:25px; border-radius:10px; box-shadow:0 4px 10px rgba(0,0,0,0.1); max-width:500px; margin:auto; }
-    form { display:grid; gap:15px; }
-    input, select, textarea, button { padding:12px; font-size:16px; border-radius:6px; border:1px solid #ccc; }
-    button { background:#111; color:#fff; cursor:pointer; border:none; }
-    button:hover { background:#333; }
-    footer { background:#111; color:#fff; text-align:center; padding:15px; margin-top:30px; }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RB Professional Unisex Salon</title>
+<style>
+  body { margin:0; font-family: Arial, sans-serif; background:#f7f7f7; color:#333; }
+  header { background:#111; color:#fff; padding:30px 20px; text-align:center; }
+  header h1 { margin:0; font-size:32px; }
+  header p { font-size:18px; margin-top:5px; }
+  
+  .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px,1fr)); gap:20px; padding:20px; max-width:1000px; margin:auto; }
+  .gallery img { width:100%; border-radius:10px; box-shadow:0 4px 10px rgba(0,0,0,0.2); }
+
+  section { padding:40px 20px; max-width:1000px; margin:auto; }
+  h2 { text-align:center; margin-bottom:25px; font-size:28px; }
+
+  .services { display:grid; grid-template-columns: repeat(auto-fit, minmax(200px,1fr)); gap:20px; }
+  .card { background:#fff; padding:20px; border-radius:10px; box-shadow:0 4px 10px rgba(0,0,0,0.1); text-align:center; transition: transform 0.2s; }
+  .card:hover { transform: translateY(-5px); }
+  .card h3 { margin-top:0; color:#111; }
+  
+  .booking { background:#fff; padding:30px; border-radius:10px; box-shadow:0 4px 10px rgba(0,0,0,0.1); max-width:500px; margin:auto; }
+  form { display:grid; gap:15px; }
+  input, select, textarea, button { padding:12px; font-size:16px; border-radius:6px; border:1px solid #ccc; width:100%; box-sizing:border-box; }
+  button { background:#111; color:#fff; border:none; cursor:pointer; transition: background 0.2s; }
+  button:hover { background:#333; }
+
+  footer { background:#111; color:#fff; text-align:center; padding:20px; margin-top:30px; }
+</style>
 </head>
 <body>
 
@@ -30,34 +38,35 @@
 </header>
 
 <section>
-  <h2>Our Salon Gallery</h2>
+  <h2>Gallery</h2>
   <div class="gallery">
-    <img src="https://images.unsplash.com/photo-1588776814546-3e637e5f0a7f?auto=format&fit=crop&w=800&q=80" alt="Haircut">
-    <img src="https://images.unsplash.com/photo-1610428453259-4d0fae28f7b3?auto=format&fit=crop&w=800&q=80" alt="Facial">
-    <img src="https://images.unsplash.com/photo-1614285997988-0e048540e0f6?auto=format&fit=crop&w=800&q=80" alt="Hair Curl">
-    <img src="https://images.unsplash.com/photo-1600185362048-5f5049d8b0d5?auto=format&fit=crop&w=800&q=80" alt="Scrub">
+    <!-- Example images, replace with your own Base64 images if you want -->
+    <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD..." alt="Salon Photo 1">
+    <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD..." alt="Salon Photo 2">
+    <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD..." alt="Salon Photo 3">
+    <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD..." alt="Salon Photo 4">
   </div>
 </section>
 
 <section>
   <h2>Our Services</h2>
   <div class="services">
-    <div class="card"><h3>Haircut</h3><p>Latest and classic haircuts</p></div>
-    <div class="card"><h3>Facial</h3><p>Glowing and skincare facials</p></div>
-    <div class="card"><h3>Hair Curl</h3><p>Curl and style your hair</p></div>
-    <div class="card"><h3>Scrub</h3><p>Deep cleaning and skin scrub</p></div>
-    <div class="card"><h3>Wax</h3><p>Face and body waxing</p></div>
-    <div class="card"><h3>Face Cleanup</h3><p>Remove unwanted and tiny facial hairs</p></div>
+    <div class="card"><h3>Haircut</h3><p>Latest & Classic Haircuts</p></div>
+    <div class="card"><h3>Facial</h3><p>Glowing Skin & Care Facials</p></div>
+    <div class="card"><h3>Hair Curl</h3><p>Curl & Style Your Hair</p></div>
+    <div class="card"><h3>Scrub</h3><p>Deep Cleaning & Skin Scrub</p></div>
+    <div class="card"><h3>Wax</h3><p>Face & Body Waxing</p></div>
+    <div class="card"><h3>Face Cleanup</h3><p>Remove Unwanted Hair & Tiny Cleanup</p></div>
   </div>
 </section>
 
 <section>
   <h2>Book Your Appointment</h2>
   <div class="booking">
-    <form onsubmit="openWhatsApp(); return false;">
-      <input type="text" id="name" placeholder="Your Name" required>
-      <input type="tel" id="phone" placeholder="Mobile Number" required>
-      <select id="service" required>
+    <form action="https://api.whatsapp.com/send?phone=YOURNUMBER&text=Hi%20I%20want%20to%20book%20an%20appointment" target="_blank">
+      <input type="text" placeholder="Your Name" required>
+      <input type="tel" placeholder="Mobile Number" required>
+      <select required>
         <option value="">Select Service</option>
         <option>Haircut</option>
         <option>Facial</option>
@@ -66,9 +75,9 @@
         <option>Wax</option>
         <option>Full Grooming</option>
       </select>
-      <input type="date" id="date" required>
-      <textarea id="note" placeholder="Any special request (Optional)"></textarea>
-      <button type="submit">Book Appointment</button>
+      <input type="date" required>
+      <textarea placeholder="Any Special Request (Optional)"></textarea>
+      <button type="submit">Book via WhatsApp</button>
     </form>
   </div>
 </section>
@@ -78,18 +87,6 @@
   <p>Call us: +91 78890 35293</p>
   <p>Visit: Near Js resort 1, Ropar</p>
 </footer>
-
-<script>
-function openWhatsApp() {
-  var name = encodeURIComponent(document.getElementById('name').value);
-  var phone = encodeURIComponent(document.getElementById('phone').value);
-  var service = encodeURIComponent(document.getElementById('service').value);
-  var date = encodeURIComponent(document.getElementById('date').value);
-  var note = encodeURIComponent(document.getElementById('note').value);
-  var message = `Hello! I want to book an appointment:\nName: ${name}\nPhone: ${phone}\nService: ${service}\nDate: ${date}\nNote: ${note}`;
-  window.open(`https://wa.me/8360407137?text=${message}`, '_blank');
-}
-</script>
 
 </body>
 </html>
