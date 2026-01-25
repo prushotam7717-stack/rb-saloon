@@ -6,28 +6,21 @@
 <title>RB Professional Unisex Salon</title>
 <style>
   body { margin:0; font-family: Arial, sans-serif; background:#f7f7f7; color:#333; }
-  header { background:#111; color:#fff; padding:30px 20px; text-align:center; }
-  header h1 { margin:0; font-size:32px; }
-  header p { font-size:18px; margin-top:5px; }
-  
-  .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px,1fr)); gap:20px; padding:20px; max-width:1000px; margin:auto; }
-  .gallery img { width:100%; border-radius:10px; box-shadow:0 4px 10px rgba(0,0,0,0.2); }
-
-  section { padding:40px 20px; max-width:1000px; margin:auto; }
-  h2 { text-align:center; margin-bottom:25px; font-size:28px; }
-
-  .services { display:grid; grid-template-columns: repeat(auto-fit, minmax(200px,1fr)); gap:20px; }
-  .card { background:#fff; padding:20px; border-radius:10px; box-shadow:0 4px 10px rgba(0,0,0,0.1); text-align:center; transition: transform 0.2s; }
-  .card:hover { transform: translateY(-5px); }
-  .card h3 { margin-top:0; color:#111; }
-  
-  .booking { background:#fff; padding:30px; border-radius:10px; box-shadow:0 4px 10px rgba(0,0,0,0.1); max-width:500px; margin:auto; }
+  header { text-align:center; background:#111; color:#fff; padding:20px; }
+  header h1 { margin:0; font-size:28px; }
+  .slider { position:relative; max-width:800px; margin:20px auto; overflow:hidden; border-radius:10px; box-shadow:0 4px 10px rgba(0,0,0,0.2); }
+  .slides { display:flex; transition:0.5s ease; }
+  .slides img { width:100%; border-radius:10px; flex-shrink:0; }
+  .nav-btn { position:absolute; top:50%; transform:translateY(-50%); background:rgba(0,0,0,0.5); color:#fff; border:none; font-size:24px; padding:10px; cursor:pointer; border-radius:50%; }
+  .prev { left:10px; }
+  .next { right:10px; }
+  section { padding:20px; max-width:1000px; margin:auto; }
+  .booking { background:#fff; padding:25px; border-radius:10px; box-shadow:0 4px 10px rgba(0,0,0,0.1); margin-top:20px; }
   form { display:grid; gap:15px; }
-  input, select, textarea, button { padding:12px; font-size:16px; border-radius:6px; border:1px solid #ccc; width:100%; box-sizing:border-box; }
-  button { background:#111; color:#fff; border:none; cursor:pointer; transition: background 0.2s; }
+  input, select, textarea, button { padding:12px; font-size:16px; border-radius:6px; border:1px solid #ccc; }
+  button { background:#111; color:#fff; cursor:pointer; border:none; }
   button:hover { background:#333; }
-
-  footer { background:#111; color:#fff; text-align:center; padding:20px; margin-top:30px; }
+  footer { background:#111; color:#fff; text-align:center; padding:15px; margin-top:30px; }
 </style>
 </head>
 <body>
@@ -37,49 +30,35 @@
   <p>Professional Hair • Facial • Grooming Services</p>
 </header>
 
-<section>
-  <h2>Gallery</h2>
-  <div class="gallery">
-    <!-- Example images, replace with your own Base64 images if you want -->
-    <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD..." alt="Salon Photo 1">
-    <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD..." alt="Salon Photo 2">
-    <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD..." alt="Salon Photo 3">
-    <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD..." alt="Salon Photo 4">
+<div class="slider">
+  <div class="slides">
+    <img src="https://images.pexels.com/photos/3757671/pexels-photo-3757671.jpeg" alt="Photo 1">
+    <img src="https://images.pexels.com/photos/3992872/pexels-photo-3992872.jpeg" alt="Photo 2">
+    <img src="https://images.pexels.com/photos/3836923/pexels-photo-3836923.jpeg" alt="Photo 3">
+    <img src="https://images.pexels.com/photos/3760050/pexels-photo-3760050.jpeg" alt="Photo 4">
   </div>
-</section>
+  <button class="nav-btn prev" onclick="prevSlide()">&#10094;</button>
+  <button class="nav-btn next" onclick="nextSlide()">&#10095;</button>
+</div>
 
-<section>
-  <h2>Our Services</h2>
-  <div class="services">
-    <div class="card"><h3>Haircut</h3><p>Latest & Classic Haircuts</p></div>
-    <div class="card"><h3>Facial</h3><p>Glowing Skin & Care Facials</p></div>
-    <div class="card"><h3>Hair Curl</h3><p>Curl & Style Your Hair</p></div>
-    <div class="card"><h3>Scrub</h3><p>Deep Cleaning & Skin Scrub</p></div>
-    <div class="card"><h3>Wax</h3><p>Face & Body Waxing</p></div>
-    <div class="card"><h3>Face Cleanup</h3><p>Remove Unwanted Hair & Tiny Cleanup</p></div>
-  </div>
-</section>
-
-<section>
+<section class="booking">
   <h2>Book Your Appointment</h2>
-  <div class="booking">
-    <form action="https://api.whatsapp.com/send?phone=YOURNUMBER&text=Hi%20I%20want%20to%20book%20an%20appointment" target="_blank">
-      <input type="text" placeholder="Your Name" required>
-      <input type="tel" placeholder="Mobile Number" required>
-      <select required>
-        <option value="">Select Service</option>
-        <option>Haircut</option>
-        <option>Facial</option>
-        <option>Hair Curl</option>
-        <option>Scrub</option>
-        <option>Wax</option>
-        <option>Full Grooming</option>
-      </select>
-      <input type="date" required>
-      <textarea placeholder="Any Special Request (Optional)"></textarea>
-      <button type="submit">Book via WhatsApp</button>
-    </form>
-  </div>
+  <form action="https://api.whatsapp.com/send?phone=+917889035293&text=Hello, I want to book an appointment" method="get" target="_blank">
+    <input type="text" placeholder="Your Name" name="name" required>
+    <input type="tel" placeholder="Mobile Number" name="phone" required>
+    <select name="service" required>
+      <option value="">Select Service</option>
+      <option>Haircut</option>
+      <option>Facial</option>
+      <option>Hair Curl</option>
+      <option>Scrub</option>
+      <option>Wax</option>
+      <option>Full Grooming</option>
+    </select>
+    <input type="date" name="date" required>
+    <textarea placeholder="Any special request (Optional)" name="request"></textarea>
+    <button type="submit">Book Appointment via WhatsApp</button>
+  </form>
 </section>
 
 <footer>
@@ -87,6 +66,24 @@
   <p>Call us: +91 78890 35293</p>
   <p>Visit: Near Js resort 1, Ropar</p>
 </footer>
+
+<script>
+let current = 0;
+const slides = document.querySelectorAll('.slides img');
+
+function showSlide(index) {
+  if(index >= slides.length) current = 0;
+  else if(index < 0) current = slides.length -1;
+  else current = index;
+  const offset = -current * 100;
+  document.querySelector('.slides').style.transform = 'translateX(' + offset + '%)';
+}
+
+function nextSlide() { showSlide(current + 1); }
+function prevSlide() { showSlide(current - 1); }
+
+setInterval(nextSlide, 5000); // auto slide every 5 seconds
+</script>
 
 </body>
 </html>
