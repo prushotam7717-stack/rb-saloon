@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RB Professional Unisex Salon</title>
+  <style>
+    body { margin:0; font-family:Arial,sans-serif; background:#f7f7f7; color:#333; }
+    header { background:#111; color:#fff; padding:20px; text-align:center; }
+    header h1 { margin:0; font-size:28px; }
+    section { padding:30px 15px; max-width:1000px; margin:auto; }
+    .services { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:20px; }
+    .card { background:#fff; padding:20px; border-radius:10px; box-shadow:0 4px 10px rgba(0,0,0,0.1); text-align:center; }
+    .card h3 { margin-top:0; color:#000; }
+    .booking { background:#fff; padding:25px; border-radius:10px; box-shadow:0 4px 10px rgba(0,0,0,0.1); }
+    form { display:grid; gap:15px; }
+    input, select, textarea, button { padding:12px; font-size:16px; border-radius:6px; border:1px solid #ccc; }
+    button { background:#111; color:#fff; cursor:pointer; border:none; }
+    button:hover { background:#333; }
+    footer { background:#111; color:#fff; text-align:center; padding:15px; margin-top:30px; }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>RB Professional Unisex Salon</h1>
+  <p>Professional Hair • Facial • Grooming Services</p>
+</header>
+
+<section>
+  <h2>Our Services</h2>
+  <div class="services">
+    <div class="card"><h3>Haircut</h3><p>All latest and classic haircuts</p></div>
+    <div class="card"><h3>Facial</h3><p>Glowing and skin care facials</p></div>
+    <div class="card"><h3>Hair Curl</h3><p>Styling and curling hair</p></div>
+    <div class="card"><h3>Scrub</h3><p>Deep cleaning and skin scrubs</p></div>
+    <div class="card"><h3>Wax</h3><p>Face and body waxing</p></div>
+    <div class="card"><h3>Face Cleanup</h3><p>Remove unwanted hair and tiny facial hairs</p></div>
+  </div>
+</section>
+
+<section>
+  <h2>Book an Appointment</h2>
+  <div class="booking">
+    <form>
+      <input type="text" placeholder="Your Name" required>
+      <input type="tel" placeholder="Mobile Number" required>
+      <select required>
+        <option value="">Select Service</option>
+        <option>Haircut</option>
+        <option>Facial</option>
+        <option>Hair Curl</option>
+        <option>Scrub</option>
+        <option>Wax</option>
+        <option>Full Grooming</option>
+      </select>
+      <input type="date" required>
+      <textarea placeholder="Any special request (Optional)"></textarea>
+      <button type="submit">Book Appointment</button>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 RB Professional Unisex Salon | All Rights Reserved</p>
+  <p>Call us: +91 78890 35293</p>
+  <p>Visit: Near Js resort 1, Ropar</p>
+</footer>
+
+</body>
+</html>
