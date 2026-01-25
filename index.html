@@ -1,81 +1,124 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>RB Saloon Booking</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #f5f5f5;
-      padding: 20px;
-    }
-    .box {
-      max-width: 400px;
-      background: #fff;
-      padding: 20px;
-      margin: auto;
-      border-radius: 10px;
-    }
-    h2 {
-      text-align: center;
-    }
-    input, select, button {
-      width: 100%;
-      padding: 10px;
-      margin-top: 10px;
-      font-size: 16px;
-    }
-    button {
-      background: #25D366;
-      color: white;
-      border: none;
-      border-radius: 5px;
-    }
-  </style>
+<meta charset="UTF-8">
+<title>RB Saloon | Book Appointment</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #111, #333);
+    font-family: 'Segoe UI', sans-serif;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .card {
+    width: 360px;
+    background: #fff;
+    border-radius: 14px;
+    padding: 25px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+  }
+
+  .logo {
+    text-align: center;
+    font-size: 26px;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+
+  .tagline {
+    text-align: center;
+    font-size: 13px;
+    color: #777;
+    margin-bottom: 20px;
+  }
+
+  input, select {
+    width: 100%;
+    padding: 12px;
+    margin-top: 12px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 15px;
+  }
+
+  button {
+    width: 100%;
+    margin-top: 20px;
+    padding: 14px;
+    font-size: 16px;
+    font-weight: bold;
+    background: #25D366;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+  }
+
+  button:hover {
+    background: #1ebe5d;
+  }
+
+  .footer {
+    text-align: center;
+    font-size: 11px;
+    color: #999;
+    margin-top: 15px;
+  }
+</style>
 </head>
 
 <body>
-  <div class="box">
-    <h2>RB Saloon Booking</h2>
 
-    <input type="text" id="name" placeholder="Your Name">
+<div class="card">
+  <div class="logo">RB SALOON</div>
+  <div class="tagline">Premium Grooming & Styling</div>
 
-    <select id="service">
-      <option value="">Select Service</option>
-      <option>Hair Cut</option>
-      <option>Beard Trim</option>
-      <option>Hair + Beard</option>
-      <option>Facial</option>
-    </select>
+  <input type="text" id="name" placeholder="Your Name">
 
-    <input type="date" id="date">
+  <select id="service">
+    <option value="">Select Service</option>
+    <option>Hair Cut</option>
+    <option>Beard Trim</option>
+    <option>Hair + Beard</option>
+    <option>Facial</option>
+  </select>
 
-    <button onclick="sendWhatsApp()">Book on WhatsApp</button>
-  </div>
+  <input type="date" id="date">
 
-  <script>
-    function sendWhatsApp() {
-      var name = document.getElementById("name").value;
-      var service = document.getElementById("service").value;
-      var date = document.getElementById("date").value;
+  <button onclick="bookNow()">Book on WhatsApp</button>
 
-      if (name === "" || service === "" || date === "") {
-        alert("Please fill all details");
-        return;
-      }
+  <div class="footer">© 2026 RB Saloon</div>
+</div>
 
-      var phone = "917889035293"; // 👈 यहाँ अपना WhatsApp नंबर डालो
+<script>
+function bookNow() {
+  var name = document.getElementById("name").value;
+  var service = document.getElementById("service").value;
+  var date = document.getElementById("date").value;
 
-      var message =
-        "New Booking%0A" +
-        "Name: " + name + "%0A" +
-        "Service: " + service + "%0A" +
-        "Date: " + date;
+  if (name === "" || service === "" || date === "") {
+    alert("Please fill all details");
+    return;
+  }
 
-      var url = "https://wa.me/" + phone + "?text=" + message;
-      window.open(url, "_blank");
-    }
-  </script>
+  var phone = "918360407137"; // 👈 اپنا WhatsApp نمبر
+
+  var msg =
+    "💈 *RB Saloon Booking* %0A%0A" +
+    "👤 Name: " + name + "%0A" +
+    "✂️ Service: " + service + "%0A" +
+    "📅 Date: " + date;
+
+  window.open("https://wa.me/" + phone + "?text=" + msg, "_blank");
+}
+</script>
+
 </body>
 </html>
