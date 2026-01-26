@@ -1,88 +1,134 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>RB Professional Unisex Salon</title>
-<style>
-  body { margin:0; font-family: Arial, sans-serif; background:#f7f7f7; color:#333; }
-  header { text-align:center; background:#111; color:#fff; padding:20px; }
-  header h1 { margin:0; font-size:28px; }
-  .slider { position:relative; max-width:800px; margin:20px auto; overflow:hidden; border-radius:10px; box-shadow:0 4px 10px rgba(0,0,0,0.2); }
-  .slides { display:flex; transition:0.5s ease; }
-  .slides img { width:100%; border-radius:10px; flex-shrink:0; }
-  .nav-btn { position:absolute; top:50%; transform:translateY(-50%); background:rgba(0,0,0,0.5); color:#fff; border:none; font-size:24px; padding:10px; cursor:pointer; border-radius:50%; }
-  .prev { left:10px; }
-  .next { right:10px; }
-  section { padding:20px; max-width:1000px; margin:auto; }
-  .booking { background:#fff; padding:25px; border-radius:10px; box-shadow:0 4px 10px rgba(0,0,0,0.1); margin-top:20px; }
-  form { display:grid; gap:15px; }
-  input, select, textarea, button { padding:12px; font-size:16px; border-radius:6px; border:1px solid #ccc; }
-  button { background:#111; color:#fff; cursor:pointer; border:none; }
-  button:hover { background:#333; }
-  footer { background:#111; color:#fff; text-align:center; padding:15px; margin-top:30px; }
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RB Saloon | Premium Men's Studio</title>
+    <style>
+        :root { --gold: #d4af37; --dark: #0a0a0a; --gray: #1a1a1a; }
+        body { background: var(--dark); color: white; font-family: sans-serif; margin: 0; }
+        
+        /* Header */
+        header { text-align: center; padding: 50px 20px; border-bottom: 2px solid var(--gold); }
+        h1 { color: var(--gold); letter-spacing: 4px; margin: 0; }
+
+        /* Image Slider */
+        .slider-container {
+            width: 100%;
+            max-width: 800px;
+            margin: 20px auto;
+            overflow: hidden;
+            position: relative;
+            border: 2px solid var(--gold);
+            border-radius: 10px;
+        }
+        .slides { display: flex; width: 400%; animation: slide 12s infinite; }
+        .slides img { width: 100%; height: 400px; object-fit: cover; }
+        
+        @keyframes slide {
+            0% { transform: translateX(0%); }
+            25% { transform: translateX(-25%); }
+            50% { transform: translateX(-50%); }
+            75% { transform: translateX(-75%); }
+            100% { transform: translateX(0%); }
+        }
+
+        .container { max-width: 1000px; margin: auto; padding: 20px; }
+        
+        /* Services */
+        .services { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+        .box { background: var(--gray); padding: 20px; border-radius: 8px; border-left: 4px solid var(--gold); }
+        .box h3 { color: var(--gold); margin-top: 0; }
+
+        /* Booking Form */
+        .booking-box {
+            background: #111;
+            padding: 30px;
+            margin-top: 50px;
+            border-radius: 15px;
+            border: 1px solid var(--gold);
+        }
+        input, select {
+            width: 100%; padding: 12px; margin: 10px 0;
+            background: #222; border: 1px solid #444; color: white; border-radius: 5px;
+        }
+        button {
+            width: 100%; padding: 15px; background: var(--gold);
+            border: none; font-weight: bold; cursor: pointer; font-size: 16px; margin-top: 10px;
+        }
+    </style>
 </head>
 <body>
 
 <header>
-  <h1>RB Professional Unisex Salon</h1>
-  <p>Professional Hair • Facial • Grooming Services</p>
+    <h1>RB SALOON</h1>
+    <p>LUXURY MEN'S GROOMING</p>
 </header>
 
-<div class="slider">
-  <div class="slides">
-    <img src="https://images.pexels.com/photos/3757671/pexels-photo-3757671.jpeg" alt="Photo 1">
-    <img src="https://images.pexels.com/photos/3992872/pexels-photo-3992872.jpeg" alt="Photo 2">
-    <img src="https://images.pexels.com/photos/3836923/pexels-photo-3836923.jpeg" alt="Photo 3">
-    <img src="https://images.pexels.com/photos/3760050/pexels-photo-3760050.jpeg" alt="Photo 4">
-  </div>
-  <button class="nav-btn prev" onclick="prevSlide()">&#10094;</button>
-  <button class="nav-btn next" onclick="nextSlide()">&#10095;</button>
+<div class="container">
+    <div class="slider-container">
+        <div class="slides">
+            <img src="https://images.unsplash.com/photo-1585747860715-2ba37e788b70?w=800" alt="Haircut 1">
+            <img src="https://images.unsplash.com/photo-1621605815971-fbc98d665033?w=800" alt="Haircut 2">
+            <img src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?w=800" alt="Haircut 3">
+            <img src="https://images.unsplash.com/photo-1599351431247-f5091e3c319e?w=800" alt="Haircut 4">
+        </div>
+    </div>
+
+    <h2 style="color:var(--gold); text-align:center;">Professional Services</h2>
+    <div class="services">
+        <div class="box"><h3>Hair Design</h3><p>Skin Fade, Taper, Classic Cut, Pompadour.</p></div>
+        <div class="box"><h3>Beard Art</h3><p>Hot Towel Shave, Beard Trim, Line-up.</p></div>
+        <div class="box"><h3>Skin Care</h3><p>Gold Facial, De-tan, Charcoal Cleanup.</p></div>
+    </div>
+
+    <div class="booking-box">
+        <h2 style="text-align:center; color:var(--gold);">Book Your Slot</h2>
+        <input type="text" id="name" placeholder="Apka Naam" required>
+        <input type="tel" id="whatsapp" placeholder="Apka WhatsApp Number" required>
+        
+        <select id="service">
+            <option value="Haircut">Haircut & Styling</option>
+            <option value="Beard Trim">Beard Grooming</option>
+            <option value="Facial">Skin Care / Facial</option>
+            <option value="Complete Package">Wedding / Groom Package</option>
+        </select>
+
+        <input type="date" id="date">
+        <input type="time" id="time">
+
+        <button onclick="sendBooking()">WhatsApp Par Booking Bhejein</button>
+    </div>
 </div>
 
-<section class="booking">
-  <h2>Book Your Appointment</h2>
-  <form action="https://api.whatsapp.com/send?phone=+917889035293&text=Hello, I want to book an appointment" method="get" target="_blank">
-    <input type="text" placeholder="Your Name" name="name" required>
-    <input type="tel" placeholder="Mobile Number" name="phone" required>
-    <select name="service" required>
-      <option value="">Select Service</option>
-      <option>Haircut</option>
-      <option>Facial</option>
-      <option>Hair Curl</option>
-      <option>Scrub</option>
-      <option>Wax</option>
-      <option>Full Grooming</option>
-    </select>
-    <input type="date" name="date" required>
-    <textarea placeholder="Any special request (Optional)" name="request"></textarea>
-    <button type="submit">Book Appointment via WhatsApp</button>
-  </form>
-</section>
-
-<footer>
-  <p>© 2026 RB Professional Unisex Salon | All Rights Reserved</p>
-  <p>Call us: +91 78890 35293</p>
-  <p>Visit: Near Js resort 1, Ropar</p>
-</footer>
-
 <script>
-let current = 0;
-const slides = document.querySelectorAll('.slides img');
+function sendBooking() {
+    // !-- ZAROORI: YAHAN APNA NUMBER DAALEIN --!
+    let myNumber = "918360407137"; 
 
-function showSlide(index) {
-  if(index >= slides.length) current = 0;
-  else if(index < 0) current = slides.length -1;
-  else current = index;
-  const offset = -current * 100;
-  document.querySelector('.slides').style.transform = 'translateX(' + offset + '%)';
+    let name = document.getElementById('name').value;
+    let userPhone = document.getElementById('whatsapp').value;
+    let service = document.getElementById('service').value;
+    let date = document.getElementById('date').value;
+    let time = document.getElementById('time').value;
+
+    if(name == "" || userPhone == "" || date == "") {
+        alert("Bhai, saari details bharna zaroori hai!");
+        return;
+    }
+
+    // Message Jo Tere WhatsApp Par Aayega
+    let message = "*Naya Appointment Aaya Hai!*%0a%0a" + 
+                  "*Client Naam:* " + name + "%0a" +
+                  "*Client Number:* " + userPhone + "%0a" +
+                  "*Service:* " + service + "%0a" +
+                  "*Date:* " + date + "%0a" +
+                  "*Time:* " + time + "%0a%0a" +
+                  "Bhai, ye booking confirm karni hai?";
+
+    let url = "https://wa.me/" + myNumber + "?text=" + message;
+    window.open(url, '_blank');
 }
-
-function nextSlide() { showSlide(current + 1); }
-function prevSlide() { showSlide(current - 1); }
-
-setInterval(nextSlide, 5000); // auto slide every 5 seconds
 </script>
 
 </body>
