@@ -2,174 +2,81 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>RB Professional Salon</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+<title>Salon Website</title>
 <style>
-body{
-    margin:0;
-    font-family: Arial, sans-serif;
-    background:#fff;
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #fff;
 }
-header{
-    background:#fff;
-    padding:15px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    border-bottom:1px solid #eee;
+.slider {
+  position: relative;
+  width: 100%;
+  height: 70vh;
+  overflow: hidden;
 }
-header img{
-    height:50px;
-    margin-right:10px;
+.slide {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 1s ease;
 }
-header h1{
-    color:#b89b5e;
-    letter-spacing:2px;
+.slide.active {
+  opacity: 1;
 }
-
-/* Slider */
-.slider{
-    width:100%;
-    height:260px;
-    overflow:hidden;
+.slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
-.slider img{
-    width:100%;
-    height:260px;
-    object-fit:cover;
+.overlay {
+  position: absolute;
+  bottom: 20%;
+  left: 10%;
+  color: white;
+  background: rgba(0,0,0,0.5);
+  padding: 20px;
 }
-
-/* Services */
-.services{
-    text-align:center;
-    padding:20px;
-}
-.services button{
-    margin:5px;
-    padding:10px 20px;
-    border:1px solid #b89b5e;
-    background:#fff;
-    color:#b89b5e;
-    cursor:pointer;
-}
-.services button:hover{
-    background:#b89b5e;
-    color:#fff;
-}
-
-/* Gallery */
-.gallery{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
-    gap:10px;
-    padding:20px;
-}
-.gallery img{
-    width:100%;
-    height:180px;
-    object-fit:cover;
-    border-radius:5px;
-}
-
-/* Booking */
-.booking{
-    text-align:center;
-    padding:30px;
-}
-.booking a{
-    background:#25D366;
-    color:#fff;
-    padding:15px 30px;
-    text-decoration:none;
-    font-size:18px;
-    border-radius:5px;
-}
-
-/* Success */
-#success{
-    display:none;
-    text-align:center;
-    padding:40px;
-}
-#success h2{
-    color:green;
-    font-size:30px;
+button {
+  background: gold;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-weight: bold;
 }
 </style>
 </head>
 
 <body>
 
-<header>
-    <img src="https://upload.wikimedia.org/wikipedia/commons/a/ab/Logo_TV_2015.png">
-    <h1>RB PROFESSIONAL</h1>
-</header>
-
 <div class="slider">
-    <img id="slide" src="https://images.unsplash.com/photo-1600334129128-685c5582fd35">
-</div>
+  <div class="slide active">
+    <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?q=80&w=1600" />
+  </div>
+  <div class="slide">
+    <img src="https://images.unsplash.com/photo-1519415943484-9fa1873496d4?q=80&w=1600" />
+  </div>
+  <div class="slide">
+    <img src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?q=80&w=1600" />
+  </div>
 
-<div class="services">
-    <button onclick="showService('facial')">Facial</button>
-    <button onclick="showService('beard')">Beard</button>
-    <button onclick="showService('hair')">Haircut</button>
-</div>
-
-<div class="gallery" id="gallery"></div>
-
-<div class="booking">
-    <a href="https://wa.me/91XXXXXXXXXX?text=I want to book an appointment"
-       onclick="bookingDone()">Book on WhatsApp</a>
-</div>
-
-<div id="success">
-    <h2>✔ Booking Successful</h2>
-    <p>Thank you for choosing RB Professional</p>
+  <div class="overlay">
+    <h1>Premium Salon</h1>
+    <p>Style. Grooming. Confidence.</p>
+    <button>Book Now</button>
+  </div>
 </div>
 
 <script>
-let slides=[
- "https://images.unsplash.com/photo-1519415943484-9fa1873496d4",
- "https://images.unsplash.com/photo-1585747860715-2ba37e788b70",
- "https://images.unsplash.com/photo-1599351431613-18ef1fdd27e1"
-];
-let i=0;
-setInterval(()=>{
- i=(i+1)%slides.length;
- document.getElementById("slide").src=slides[i];
-},3000);
+let slides = document.querySelectorAll(".slide");
+let index = 0;
 
-const photos={
- facial:[
-  "https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1",
-  "https://images.unsplash.com/photo-1559599238-308793637427"
- ],
- beard:[
-  "https://images.unsplash.com/photo-1599351431613-18ef1fdd27e1",
-  "https://images.unsplash.com/photo-1585747860715-2ba37e788b70"
- ],
- hair:[
-  "https://images.unsplash.com/photo-1600334129128-685c5582fd35",
-  "https://images.unsplash.com/photo-1519415943484-9fa1873496d4"
- ]
-};
-
-function showService(type){
- let g=document.getElementById("gallery");
- g.innerHTML="";
- photos[type].forEach(p=>{
-   let img=document.createElement("img");
-   img.src=p;
-   g.appendChild(img);
- });
-}
-
-function bookingDone(){
- setTimeout(()=>{
-   document.getElementById("success").style.display="block";
- },1000);
-}
+setInterval(() => {
+  slides[index].classList.remove("active");
+  index = (index + 1) % slides.length;
+  slides[index].classList.add("active");
+}, 3000);
 </script>
 
 </body>
