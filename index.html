@@ -3,133 +3,235 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RB Saloon | Premium Men's Studio</title>
+    <title>RB Saloon | Premium Booking</title>
     <style>
-        :root { --gold: #d4af37; --dark: #0a0a0a; --gray: #1a1a1a; }
-        body { background: var(--dark); color: white; font-family: sans-serif; margin: 0; }
-        
-        /* Header */
-        header { text-align: center; padding: 50px 20px; border-bottom: 2px solid var(--gold); }
-        h1 { color: var(--gold); letter-spacing: 4px; margin: 0; }
+        /* --- POORA DESIGN (CSS) --- */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+        }
 
-        /* Image Slider */
-        .slider-container {
+        /* Header & Black-Gold Theme */
+        header {
+            background-color: #000;
+            color: #D4AF37;
+            padding: 25px;
+            text-align: center;
+            border-bottom: 4px solid #D4AF37;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        }
+
+        .logo h1 {
+            margin: 0;
+            font-size: clamp(24px, 8vw, 45px);
+            letter-spacing: 4px;
+            text-transform: uppercase;
+        }
+
+        nav { margin-top: 15px; }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 10px;
+            font-weight: bold;
+            font-size: 14px;
+            text-transform: uppercase;
+        }
+
+        /* Layout Container */
+        .container {
+            max-width: 1200px;
+            margin: 30px auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 25px;
+            padding: 0 20px;
+        }
+
+        /* Gallery Section */
+        .main-content {
+            background: #fff;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .gallery img {
             width: 100%;
-            max-width: 800px;
-            margin: 20px auto;
-            overflow: hidden;
-            position: relative;
-            border: 2px solid var(--gold);
+            height: 250px;
+            object-fit: cover;
             border-radius: 10px;
-        }
-        .slides { display: flex; width: 400%; animation: slide 12s infinite; }
-        .slides img { width: 100%; height: 400px; object-fit: cover; }
-        
-        @keyframes slide {
-            0% { transform: translateX(0%); }
-            25% { transform: translateX(-25%); }
-            50% { transform: translateX(-50%); }
-            75% { transform: translateX(-75%); }
-            100% { transform: translateX(0%); }
+            border: 2px solid #eee;
+            transition: 0.3s;
         }
 
-        .container { max-width: 1000px; margin: auto; padding: 20px; }
-        
-        /* Services */
-        .services { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
-        .box { background: var(--gray); padding: 20px; border-radius: 8px; border-left: 4px solid var(--gold); }
-        .box h3 { color: var(--gold); margin-top: 0; }
+        .gallery img:hover { border-color: #D4AF37; transform: scale(1.02); }
 
-        /* Booking Form */
-        .booking-box {
+        /* Booking Card (Black & Gold) */
+        .booking-card {
             background: #111;
-            padding: 30px;
-            margin-top: 50px;
+            color: #D4AF37;
+            padding: 35px 25px;
             border-radius: 15px;
-            border: 1px solid var(--gold);
+            border: 2px solid #D4AF37;
+            height: fit-content;
+            position: sticky;
+            top: 20px;
         }
-        input, select {
-            width: 100%; padding: 12px; margin: 10px 0;
-            background: #222; border: 1px solid #444; color: white; border-radius: 5px;
+
+        .booking-card h2 {
+            text-align: center;
+            margin-bottom: 25px;
+            font-size: 24px;
+            border-bottom: 1px solid #D4AF37;
+            padding-bottom: 15px;
         }
-        button {
-            width: 100%; padding: 15px; background: var(--gold);
-            border: none; font-weight: bold; cursor: pointer; font-size: 16px; margin-top: 10px;
+
+        .form-group { margin-bottom: 20px; }
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #fff;
+            font-size: 14px;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 12px;
+            border-radius: 6px;
+            border: 1px solid #444;
+            background: #fff;
+            color: #000;
+            box-sizing: border-box;
+        }
+
+        /* WhatsApp Button */
+        .whatsapp-btn {
+            width: 100%;
+            background: #25D366;
+            color: white;
+            padding: 16px;
+            border: none;
+            border-radius: 8px;
+            font-weight: bold;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.3s;
+            margin-top: 10px;
+            text-transform: uppercase;
+        }
+
+        .whatsapp-btn:hover { background: #128C7E; transform: translateY(-2px); }
+
+        /* Mobile Friendly */
+        @media (max-width: 900px) {
+            .container { grid-template-columns: 1fr; }
+            .booking-card { position: relative; }
         }
     </style>
 </head>
 <body>
 
-<header>
-    <h1>RB SALOON</h1>
-    <p>LUXURY MEN'S GROOMING</p>
-</header>
+    <header>
+        <div class="logo">
+            <h1>RB SALOON</h1>
+        </div>
+        <nav>
+            <a href="#">Home</a>
+            <a href="#">Services</a>
+            <a href="#">Reviews</a>
+            <a href="#">About</a>
+        </nav>
+    </header>
 
-<div class="container">
-    <div class="slider-container">
-        <div class="slides">
-            <img src="https://images.unsplash.com/photo-1585747860715-2ba37e788b70?w=800" alt="Haircut 1">
-            <img src="https://images.unsplash.com/photo-1621605815971-fbc98d665033?w=800" alt="Haircut 2">
-            <img src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?w=800" alt="Haircut 3">
-            <img src="https://images.unsplash.com/photo-1599351431247-f5091e3c319e?w=800" alt="Haircut 4">
+    <div class="container">
+        <div class="main-content">
+            <div class="gallery">
+                <img src="https://via.placeholder.com/400x500?text=Saloon+Interior+1" alt="Saloon 1">
+                <img src="https://via.placeholder.com/400x500?text=Hair+Styling" alt="Saloon 2">
+                <img src="https://via.placeholder.com/400x500?text=Beard+Trim" alt="Saloon 3">
+            </div>
+            
+            <div style="padding: 10px;">
+                <h2 style="color: #000; border-left: 5px solid #D4AF37; padding-left: 15px;">Welcome to RB Saloon</h2>
+                <p>Hamari premium services ke liye niche diye gaye form se slot book karein. Hum aapko behtareen grooming experience dete hain.</p>
+                <div style="margin-top: 20px;">
+                    <span style="background: #000; color: #fff; padding: 5px 15px; border-radius: 20px; font-size: 12px; margin-right: 10px;">Hair Cut</span>
+                    <span style="background: #000; color: #fff; padding: 5px 15px; border-radius: 20px; font-size: 12px; margin-right: 10px;">Beard</span>
+                    <span style="background: #000; color: #fff; padding: 5px 15px; border-radius: 20px; font-size: 12px;">Facial</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="booking-card">
+            <h2>Book Your Slot</h2>
+            <form id="bookingForm">
+                <div class="form-group">
+                    <label>Aapka Naam</label>
+                    <input type="text" id="cust_name" placeholder="Enter Full Name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label>Mobile Number</label>
+                    <input type="tel" id="cust_phone" placeholder="98765 43210" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Service Date & Time</label>
+                    <input type="datetime-local" id="cust_date" required>
+                </div>
+
+                <button type="button" class="whatsapp-btn" onclick="sendToWhatsApp()">
+                    Confirm via WhatsApp
+                </button>
+            </form>
+            <p style="font-size: 11px; text-align: center; margin-top: 15px; color: #888;">*Aapka booking message WhatsApp par bheja jayega.</p>
         </div>
     </div>
 
-    <h2 style="color:var(--gold); text-align:center;">Professional Services</h2>
-    <div class="services">
-        <div class="box"><h3>Hair Design</h3><p>Skin Fade, Taper, Classic Cut, Pompadour.</p></div>
-        <div class="box"><h3>Beard Art</h3><p>Hot Towel Shave, Beard Trim, Line-up.</p></div>
-        <div class="box"><h3>Skin Care</h3><p>Gold Facial, De-tan, Charcoal Cleanup.</p></div>
-    </div>
+    <script>
+        function sendToWhatsApp() {
+            // !!! APNA WHATSAPP NUMBER YAHAN DALEIN !!!
+            var myMobile = "910000000000"; // Bina '+' ke, country code ke sath
 
-    <div class="booking-box">
-        <h2 style="text-align:center; color:var(--gold);">Book Your Slot</h2>
-        <input type="text" id="name" placeholder="Apka Naam" required>
-        <input type="tel" id="whatsapp" placeholder="Apka WhatsApp Number" required>
-        
-        <select id="service">
-            <option value="Haircut">Haircut & Styling</option>
-            <option value="Beard Trim">Beard Grooming</option>
-            <option value="Facial">Skin Care / Facial</option>
-            <option value="Complete Package">Wedding / Groom Package</option>
-        </select>
+            // Form data uthana
+            var name = document.getElementById('cust_name').value;
+            var phone = document.getElementById('cust_phone').value;
+            var datetime = document.getElementById('cust_date').value;
 
-        <input type="date" id="date">
-        <input type="time" id="time">
+            // Validation
+            if(name == "" || phone == "" || datetime == "") {
+                alert("Bhai, saari details toh bhar do!");
+                return;
+            }
 
-        <button onclick="sendBooking()">WhatsApp Par Booking Bhejein</button>
-    </div>
-</div>
+            // Date format thoda saaf karna
+            var cleanDate = datetime.replace("T", " ");
 
-<script>
-function sendBooking() {
-    // !-- ZAROORI: YAHAN APNA NUMBER DAALEIN --!
-    let myNumber = "918360407137"; 
+            // Message ka format (Bold text ke liye * use kiya hai)
+            var message = "Hello RB Saloon, mujhe booking karni hai:%0a%0a" + 
+                          "*Naam:* " + name + "%0a" + 
+                          "*Phone:* " + phone + "%0a" + 
+                          "*Time:* " + cleanDate + "%0a%0a" +
+                          "Kya ye slot khali hai?";
 
-    let name = document.getElementById('name').value;
-    let userPhone = document.getElementById('whatsapp').value;
-    let service = document.getElementById('service').value;
-    let date = document.getElementById('date').value;
-    let time = document.getElementById('time').value;
+            // WhatsApp link banana
+            var finalUrl = "https://wa.me/" + myMobile + "?text=" + message;
 
-    if(name == "" || userPhone == "" || date == "") {
-        alert("Bhai, saari details bharna zaroori hai!");
-        return;
-    }
-
-    // Message Jo Tere WhatsApp Par Aayega
-    let message = "*Naya Appointment Aaya Hai!*%0a%0a" + 
-                  "*Client Naam:* " + name + "%0a" +
-                  "*Client Number:* " + userPhone + "%0a" +
-                  "*Service:* " + service + "%0a" +
-                  "*Date:* " + date + "%0a" +
-                  "*Time:* " + time + "%0a%0a" +
-                  "Bhai, ye booking confirm karni hai?";
-
-    let url = "https://wa.me/" + myNumber + "?text=" + message;
-    window.open(url, '_blank');
-}
-</script>
+            // Naye tab mein kholna
+            window.open(finalUrl, '_blank').focus();
+        }
+    </script>
 
 </body>
 </html>
