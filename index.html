@@ -1,83 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Salon Website</title>
-<style>
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background: #fff;
-}
-.slider {
-  position: relative;
-  width: 100%;
-  height: 70vh;
-  overflow: hidden;
-}
-.slide {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  opacity: 0;
-  transition: opacity 1s ease;
-}
-.slide.active {
-  opacity: 1;
-}
-.slide img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-.overlay {
-  position: absolute;
-  bottom: 20%;
-  left: 10%;
-  color: white;
-  background: rgba(0,0,0,0.5);
-  padding: 20px;
-}
-button {
-  background: gold;
-  border: none;
-  padding: 10px 20px;
-  cursor: pointer;
-  font-weight: bold;
-}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student QR Code</title>
+
+    <!-- QR Code Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        input {
+            display: block;
+            width: 280px;
+            padding: 12px;
+            margin: 10px auto;
+            font-size: 16px;
+        }
+
+        button {
+            padding: 12px 25px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        #qrcode {
+            margin: 30px auto;
+            width: 256px;
+        }
+    </style>
 </head>
 
 <body>
 
-<div class="slider">
-  <div class="slide active">
-    <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?q=80&w=1600" />
-  </div>
-  <div class="slide">
-    <img src="https://images.unsplash.com/photo-1519415943484-9fa1873496d4?q=80&w=1600" />
-  </div>
-  <div class="slide">
-    <img src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?q=80&w=1600" />
-  </div>
+    <h2>Student QR Code Generator</h2>
 
-  <div class="overlay">
-    <h1>Premium Salon</h1>
-    <p>Style. Grooming. Confidence.</p>
-    <button>Book Now</button>
-  </div>
-</div>
+    <input type="text" id="name" placeholder="Enter Name" value="Prushotam">
+    <input type="text" id="from" placeholder="Enter From" value="Ropar">
+    <input type="text" id="stream" placeholder="Enter Stream" value="BCA">
+    <input type="text" id="college" placeholder="Enter College" value="LTSU">
 
-<script>
-let slides = document.querySelectorAll(".slide");
-let index = 0;
+    <button onclick="generateQR()">Generate QR Code</button>
 
-setInterval(() => {
-  slides[index].classList.remove("active");
-  index = (index + 1) % slides.length;
-  slides[index].classList.add("active");
-}, 3000);
-</script>
+    <div id="qrcode"></div>
+
+    <script>
+        function generateQR() {
+
+            let name = document.getElementById("name").value;
+            let from = document.getElementById("from").value;
+            let stream = document.getElementById("stream").value;
+            let college = document.getElementById("college").value;
+
+            let data =
+                "Name: " + name + "\n" +
+                "From: " + from + "\n" +
+                "Stream: " + stream + "\n" +
+                "College: " + college;
+
+            document.getElementById("qrcode").innerHTML = "";
+
+            new QRCode(document.getElementById("qrcode"), {
+                text: data,
+                width: 256,
+                height: 256,
+                correctLevel: QRCode.CorrectLevel.H
+            });
+        }
+
+        // Automatically generate QR when page opens
+        generateQR();
+    </script>
 
 </body>
 </html>
